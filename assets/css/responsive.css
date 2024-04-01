@@ -80,7 +80,7 @@
 
 
       .Presentación-John img{
-        height: 60%;
+        height: 50%;
         position: absolute;
         left: 50%;
         bottom: 0;
@@ -165,12 +165,6 @@
     section, header{
         padding: 1rem;
     }
-
-        .Presentación-John img {
-            width: 340px;
-            height: 400px;
-        }
-
 }
 
 /*--------------------- Responsive (End) ---------------------*/
