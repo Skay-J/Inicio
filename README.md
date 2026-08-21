@@ -15,4 +15,3 @@ Soy un apasionado desarrollador frontend de **Venezuela** con un enfoque en la c
  - 🔭 Actualmente trabajando en [Red - Createc UBA](http://www.uba-createc.info/?i=1)
  - 👨‍💻 Todos mis proyectos están disponibles en [Portafolio | Skay J](https://skay-j.github.io/Inicio/)
  - 📫 Cómo contactarme [JohnFerreira19@proton.me]()
-

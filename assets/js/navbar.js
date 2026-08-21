@@ -1,6 +1,6 @@
 const hamburger = document.querySelector('.header .nav-bar .nav-list .hamburger');
 const mobile_menu = document.querySelector('.header .nav-bar .nav-list ul');
-const menu_item = document.querySelectorAll('.header .nav-bar .nav-list ul li a');
+const menu_items = document.querySelectorAll('.header .nav-bar .nav-list ul li a');
 const header = document.querySelector('.header.container');
 
 hamburger.addEventListener('click', () => {
@@ -9,7 +9,7 @@ hamburger.addEventListener('click', () => {
 });
 
 document.addEventListener('scroll', () => {
-	var scroll_position = window.scrollY;
+	const scroll_position = window.scrollY;
 	if (scroll_position > 50) {
 		header.style.backgroundColor = 'rgba(0, 0, 0, 0.8)';
 	} else {
@@ -17,24 +17,14 @@ document.addEventListener('scroll', () => {
 	}
 });
 
-menu_item.forEach((item) => {
+menu_items.forEach((item) => {
 	item.addEventListener('click', () => {
-		hamburger.classList.toggle('active');
-		mobile_menu.classList.toggle('active');
+		// Al hacer clic en un item del menú, el menú siempre debe cerrarse.
+		hamburger.classList.remove('active');
+		mobile_menu.classList.remove('active');
+
+		// Gestionar la clase 'active' para resaltar el item de menú actual
+		menu_items.forEach(link => link.classList.remove('active'));
+		item.classList.add('active');
 	});
-});
-
-//======== Obtener todos los enlaces del menú de navegación========//
-
-// Obtener todos los enlaces del menú de navegación
-const navLinks = document.querySelectorAll('.nav-list ul li a');
-
-// Agregar un evento de clic a cada enlace
-navLinks.forEach(link => {
-  link.addEventListener('click', () => {
-    // Remover la clase "active" de todos los enlaces
-    navLinks.forEach(l => l.classList.remove('active'));
-    // Agregar la clase "active" al enlace clickeado
-    link.classList.add('active');
-  });
 });

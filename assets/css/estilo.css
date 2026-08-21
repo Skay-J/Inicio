@@ -19,13 +19,8 @@
     box-sizing: border-box;
     text-transform: capitalize;
     font-family: 'Corporative', sans-serif;
-    color: var(--color-text);
     -webkit-box-sizing: border-box;
             box-sizing: border-box;
-    -webkit-transition: all 0.2s linear;
-       -moz-transition: all 0.2s linear;
-         -o-transition: all 0.2s linear;
-  	        transition: all 0.2s linear;
 }
 
 *::selection{
@@ -245,6 +240,19 @@ section{
         margin: 20px 0 20px;
     }
 
+    .social a {
+        margin-right: 1rem;
+    }
+    .social a svg {
+        width: 2.5rem;
+        height: 2.5rem;
+        transition: color .3s ease;
+        color: var(--color-text);
+    }
+    .social a:hover svg {
+        color: var(--color-primary);
+    }
+
     .descargar-cv {
         color: var(--color-text); 
         font-size: 0.9em;
@@ -396,20 +404,22 @@ section{
         margin-right: 1.5rem;
     }
 
-    .habilidades-caja i {
+    .habilidad-info {
         display: -webkit-box;
         display: -ms-flexbox;
         display: flex;
         -webkit-box-pack: justify;
         -ms-flex-pack: justify;
         justify-content: space-between;
+        align-items: center;
         padding: .7rem 0;
-        font-size: 1.7rem;
     }
-    .habilidades-caja img {
-        height: 20px;
+    .habilidad-info img {
+        width: 2.4rem;
+        height: 2.4rem;
+    filter: brightness(0) invert(1);
     }
-    .habilidades-caja h3 {
+    .habilidad-info h3 {
         font-size: 1.7rem;
         color: var(--color-text);
         font-weight: 400;
@@ -432,57 +442,18 @@ section{
     }
 
     .progreso-val {
-        animation: load 3s normal forwards;
+        animation: load-progress 2s ease-out forwards;
         background: var(--color-primary);
         height: 10px;
         width: 0;
     }
 
-    .progreso-val-2{
-        animation: load-2 3s normal forwards;
-    }
-
-    .progreso-val-3{
-        animation: load-3 3s normal forwards;
-    }
-
-    .progreso-val-4{
-        animation: load-4 3s normal forwards;
-    }
-
-    .progreso-val-5{
-        animation: load-5 3s normal forwards;
-    }
-
-    .progreso-val-6{
-        animation: load-6 3s normal forwards;
-    }
-
     /* keyframes para la Animación de progreso */
-        @keyframes load {
-            0% { width: 0; }
-            100% { width: 95%; }
+    @keyframes load-progress {
+        to {
+            width: var(--progress-width);
         }
-        @keyframes load-2 {
-            0% { width: 0; }
-            100% { width: 90%; }
-        }
-        @keyframes load-3 {
-            0% { width: 0; }
-            100% { width: 85%; }
-        }
-        @keyframes load-4 {
-            0% { width: 0; }
-            100% { width: 80%; }
-        }
-        @keyframes load-5 {
-            0% { width: 0; }
-            100% { width: 70%; }
-        }
-        @keyframes load-6 {
-            0% { width: 0; }
-            100% { width: 70%; }
-        }
+    }
 
     /* Sección Servicios */
     section#servicios{
@@ -497,8 +468,8 @@ section{
         -ms-flex-pack: center;
         justify-content: center;
         -webkit-box-align: center;
-        -ms-flex-align: center;
-        align-items: center;
+        -ms-flex-align: stretch;
+        align-items: stretch;
         -ms-flex-wrap: wrap;
         flex-wrap: wrap;
         gap: 1.5rem;
@@ -508,6 +479,16 @@ section{
         -webkit-box-flex: 1;
         -ms-flex: 1 1 33rem;
             flex: 1 1 33rem;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+            -ms-flex-direction: column;
+                flex-direction: column;
+        -webkit-box-align: center;
+            -ms-flex-align: center;
+                align-items: center;
         background-color: rgb(0, 0, 0);
         padding: 4rem 3rem;
         text-align: center;
@@ -524,9 +505,11 @@ section{
         background-color: var(--color-primary);
     }
 
-    .servicios-elemento i {
-        color: var(--color-text);
+    .servicios-elemento img {
         font-size: 4rem;
+        width: 4rem;
+        height: 4rem;
+    filter: brightness(0) invert(1);
     }
 
     .servicios-elemento h3 {
@@ -660,33 +643,50 @@ section{
     background-color: var(--color-primary);
 }
 
-.pie-cont p {
+.pie-cont p, .cont p {
     text-decoration: none;
-    font-size: 16px;
+    font-size: 1.6rem;
 }
 
-.pie-cont i{
+ .pie-cont p svg {
+    width: 20px;
+    height: 20px;
+    vertical-align: middle;
+    margin-right: 8px;
     color: var(--color-text);
-    font-size: 20px;
-}
+ }
+
+ .pie-cont a {
+    text-decoration: none;
+    color: var(--color-text);
+    transition: color 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+ }
+
+ .pie-cont a:hover, .pie-cont a:hover svg {
+    color: var(--color-primary);
+ }
 
 .cont a {
     text-decoration: none;
     color: var(--color-text);
     transition: 0.7s;
 }
+
 .cont a:hover{
     text-decoration: none;
     color: var(--color-primary);
 }
 
-.redes-sociales i{
-    color: var(--color-text);
-    font-size: 20px;
-    margin: 0 15px;
-    transition: 0.5s;
-}
+    .redes-sociales a svg {
+        width: 20px;
+        height: 20px;
+        color: var(--color-text);
+        margin: 0 15px;
+        transition: color 0.5s;
+    }
 
-.redes-sociales i:hover{
+    .redes-sociales a:hover svg {
     color: var(--color-primary);
 }

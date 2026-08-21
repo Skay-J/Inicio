@@ -78,6 +78,30 @@
     #contenedor-imagenes img {
         pointer-events: none; /* Desactiva los eventos de puntero, como clics */
     }
+
+    /*
+     * Solución para la imagen cortada en tabletas:
+     * Hacemos que la imagen de John se ajuste al ancho de su contenedor
+     * y que su altura se calcule automáticamente para mantener la proporción.
+     * Esto evita que la imagen se recorte en pantallas más estrechas.
+    */
+    #John {
+        /* Hacemos que la imagen se ajuste completamente dentro de su contenedor.
+           Al usar max-width y max-height, la imagen se encogerá para caber
+           sin distorsionarse y sin ser recortada. */
+        max-width: 100%;
+        max-height: 100%;
+        height: auto; /* Permite que la altura se ajuste automáticamente */
+        width: auto;  /* Permite que el ancho se ajuste automáticamente */
+    }
+
+    /* Coincide con el punto de interrupción de JS para la posición estática de las imágenes */
+    @media (max-width: 768px) {
+        #Forma, #John {
+            right: 0; /* Posiciona las imágenes a la derecha del contenedor */
+            bottom: 0; /* Ancla las imágenes a la parte inferior para evitar que "floten" */
+        }
+    }
 }
 
 /* Menú Computadora */
